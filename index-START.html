@@ -87,8 +87,20 @@ function setDate(){
       const minutes = now.getMinutes();
       const minutesDegrees = ((minutes / 60) * 360) + 90;
 
-      const hours = now.getHours();
-      const hoursDegrees = ((hours / 12) * 360) + 90;
+      let currentHour = now.getHours(); //19
+      //const hoursDegrees = ((hours / 12) * 360) + 90;
+
+      function displayHour(hour){
+        if(hour > 12){
+          return(hour - 12);
+        }
+        else if(hour <= 12){
+          return hour;
+        }
+      }
+
+      displayHour(currentHour);
+
 
 
       //target the .second-hand class 
@@ -101,7 +113,7 @@ function setDate(){
       minuteHand.style.transform = `rotate(${minutesDegrees}deg)`;
       //console.log(minutes);
 
-      console.log(hours);
+      //console.log(hours);
     }
 
     setInterval(setDate, 1000);
