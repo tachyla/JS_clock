@@ -63,6 +63,12 @@
       background:black;
       position: absolute;
       top:50%;
+      transform-origin: 100%;
+      /* apply the transform el to all hands via class; 
+      reposition hand direction */
+      transform: rotate(90deg);
+      transition: all 0.05s;
+      transition-timing-function: cubic-bezier(0.1, 2.72, .6, 1);
     }
 
   </style>
