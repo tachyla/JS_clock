@@ -71,35 +71,36 @@
 
   </style>
 
-  <script>
+  <script>    
+
+    const secondsHand = document.querySelector('.second-hand');
+    const minutesHand = document.querySelector('.minute-hand');
+
     function setDate(){
       // use the data object available to JS to get the current date & time 
       const currentTime = new Date();
       // Now that we have the currentTime available within our script we can more specifically get the
 
+      //Seconds
+      const seconds = currentTime.getSeconds();
+      const secondsDegrees = ((seconds / 60 ) * 360);
+      secondsHand.style.transform = `rotate(${secondsDegrees}deg)`; 
+      
+      //Minutes
+      const minutes = currentTime.getMinutes();
+      const minutesDegrees = ((minutes / 60) *360);
+      minutesHand.style.transform = `rotate(${minutesDegrees}deg)`;
 
-    //Seconds
-    const seconds = currentTime.getSeconds();
-
-    //Minutes
-    const minutes = currentTime.getMinutes();
-
-    //Hours
-    const hours = currentTime.getHours();
+      //Hours
+      const hours = currentTime.getHours();
 
     }
-    // give it an interval of every second 1000 milliseconds
+
+    // give it an interval of every second, 1000 milliseconds
     setInterval(setDate,1000);
 
 
-    
 
-
-
-
-
-
-    // const secondsMovement = window.document.querySelector("second-hand");
 
 
   </script>
