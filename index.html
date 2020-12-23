@@ -72,13 +72,14 @@
   </style>
 
   <script>
-    // use the data object avil to JS to get the current time
-    const currentTime = new Date();
-    // Now that we have the currentTime available within our script we can more specifically get the
+    function setDate(){
+      // use the data object available to JS to get the current date & time 
+      const currentTime = new Date();
+      // Now that we have the currentTime available within our script we can more specifically get the
+
 
     //Seconds
     const seconds = currentTime.getSeconds();
-    // console.log(seconds); the seconds of current minute displayed
 
     //Minutes
     const minutes = currentTime.getMinutes();
@@ -86,7 +87,19 @@
     //Hours
     const hours = currentTime.getHours();
 
-    window.document.querySelector("second-hand");
+    }
+    // give it an interval of every second 1000 milliseconds
+    setInterval(setDate,1000);
+
+
+    
+
+
+
+
+
+
+    // const secondsMovement = window.document.querySelector("second-hand");
 
 
   </script>
