@@ -75,6 +75,7 @@
 
     const secondsHand = document.querySelector('.second-hand');
     const minutesHand = document.querySelector('.min-hand');
+    const hoursHand = document.querySelector('.hour-hand');
 
     function setDate(){
       // use the data object available to JS to get the current date & time 
@@ -83,18 +84,22 @@
 
       //Seconds
       const seconds = currentTime.getSeconds();
+      // console.log(seconds);
       const secondsDegrees = ((seconds / 60 ) * 360) + 90;
       secondsHand.style.transform = `rotate(${secondsDegrees}deg)`; 
       
       //Minutes
       const minutes = currentTime.getMinutes();
-      console.log(minutes);
+      // console.log(minutes);
       const minutesDegrees = ((minutes / 60) * 360) + 90;
       minutesHand.style.transform = `rotate(${minutesDegrees}deg)`;
 
       //Hours
       const hours = currentTime.getHours();
-
+      console.log(hours);
+      const hoursDegrees = ((hours / 12) * 360) + 90;
+      hoursHand.style.transform = `rotate(${hoursDegrees}deg)`;
+      
     }
 
     // give it an interval of every second, 1000 milliseconds
