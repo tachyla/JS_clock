@@ -83,13 +83,14 @@
 
       //Seconds
       const seconds = currentTime.getSeconds();
-      const secondsDegrees = ((seconds / 60 ) * 360);
+      const secondsDegrees = ((seconds / 60 ) * 360) + 90;
       secondsHand.style.transform = `rotate(${secondsDegrees}deg)`; 
+      console.log(seconds);
       
       //Minutes
       const minutes = currentTime.getMinutes();
-      const minutesDegrees = ((minutes / 60) *360);
-      minutesHand.style.transform = `rotate(${minutesDegrees}deg)`;
+      // const minutesDegrees = ((minutes / 1) *360);
+      // minutesHand.style.transform = `rotate(${minutesDegrees}deg)`;
 
       //Hours
       const hours = currentTime.getHours();
