@@ -10,7 +10,7 @@
     <div class="clock">
       <div class="clock-face">
         <div class="hand hour-hand"></div>
-        <div class="hand minute-hand"></div>
+        <div class="hand min-hand"></div>
         <div class="hand second-hand"></div>
       </div>
     </div>
@@ -18,9 +18,9 @@
 
   <style>
     html {
-      background:#018DED url(http://unsplash.it/1500/1000?image=881&blur=50);
-      background-size:cover;
-      font-family:'helvetica neue';
+      background: #018DED url(https://unsplash.it/1500/1000?image=881&blur=5);
+      background-size: cover;
+      font-family: 'helvetica neue';
       text-align: center;
       font-size: 10px;
     }
@@ -28,8 +28,8 @@
     body {
       margin: 0;
       font-size: 2rem;
-      display:flex;
-      flex:1;
+      display: flex;
+      flex: 1;
       min-height: 100vh;
       align-items: center;
     }
@@ -37,11 +37,11 @@
     .clock {
       width: 30rem;
       height: 30rem;
-      border:20px solid white;
-      border-radius:50%;
-      margin:50px auto;
+      border: 20px solid white;
+      border-radius: 50%;
+      margin: 50px auto;
       position: relative;
-      padding:2rem;
+      padding: 2rem;
       box-shadow:
         0 0 0 4px rgba(0,0,0,0.1),
         inset 0 0 0 3px #EFEFEF,
@@ -53,69 +53,35 @@
       position: relative;
       width: 100%;
       height: 100%;
-      transform: translateY(-3px); /* account for the height 
-      of the clock hands */
+      transform: translateY(-3px); /* account for the height of the clock hands */
     }
 
     .hand {
-      width:50%;
-      height:6px;
-      background:black;
+      width: 50%;
+      height: 6px;
+      background: black;
       position: absolute;
-      top:50%;
-      transform-origin: 100%;
-      /* apply the transform el to all hands via class; 
-      reposition hand direction */
-      transform: rotate(90deg);
-      transition: all 0.05s;
-      transition-timing-function: cubic-bezier(0.1, 2.72, .6, 1);
+      top: 50%;
     }
 
   </style>
 
   <script>
+    // use the data object avil to JS to get the current time
+    const currentTime = new Date();
+    // Now that we have the currentTime available within our script we can more specifically get the
 
-const secondHand = document.querySelector(".second-hand");
-const minuteHand = document.querySelector(".minute-hand");
-const hourHand = document.querySelector(".hour-hand");
+    //Seconds
+    const seconds = currentTime.getSeconds();
+    // console.log(seconds); the seconds of current minute displayed
 
-function setDate(){
-      const now = new Date();
-      const seconds = now.getSeconds();
-      const secondsDegrees = ((seconds / 60) * 360) + 90;
+    //Minutes
+    const minutes = currentTime.getMinutes();
 
-      const minutes = now.getMinutes();
-      const minutesDegrees = ((minutes / 60) * 360) + 90;
+    //Hours
+    const hours = currentTime.getHours();
 
-      let currentHour = now.getHours(); //20
 
-      function displayHour(hour){
-        if(hour > 12){
-          return (hour - 12); //8
-        }
-        else if(hour <= 12){
-          return hour;
-        }
-      }
-
-      const hoursDegrees = ((displayHour(currentHour) / 12) * 360) + 90; //7
-      console.log(hoursDegrees);
-
-      //target the .second-hand class 
-      const secondHand = document.querySelector(".second-hand");
-      secondHand.style.transform = `rotate(${secondsDegrees}deg)`;
-      //console.log(seconds);
-
-      //target the .minute-hand class 
-      const minuteHand = document.querySelector(".minute-hand");
-      minuteHand.style.transform = `rotate(${minutesDegrees}deg)`;
-      //console.log(minutes);
-
-      const hourHand = document.querySelector(".hour-hand");
-      hourHand.style.transform = `rotate(${hoursDegrees}deg)`;
-    }
-
-    setInterval(setDate, 1000);
 
   </script>
 </body>
